@@ -1,18 +1,21 @@
 # Reverse bits of a given 32 bits unsigned integer.
 
 def reverseBits(n):
-        for i in range(2, len(str(n))):
-            a = []
-            for i in str(bin(n)):
-                print(i)
-                a.append(i)
-        for i in range(len(a)):
-            if a[i] == '1':
-                a[i] = '0'
-            else:
-                a[i] = '1'
-        return ''.join(a)
+        a = []
+        n = str(n)
+        for i in n:           
+            a.append(i)
+        while len(a) < 32:
+            a.insert(0, '0')
+        for i in range(16):
+            tmp = a[i]
+            a[i] = a[len(a) - i - 1]
+            a[len(a) - i - 1] = tmp
+        st = ''.join(a)
+        num = int(st, 2)
+        return num
 
-d = 82
+d = 11111111111111111111111111111101
+
 print(d)
 print(reverseBits(d))
