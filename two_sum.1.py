@@ -9,7 +9,6 @@ def two_sum(nums, target):
     s = []
     for i in nums:
         di[i] = target - i
-    print(di)
     for i in di.keys():
         if i in nums and di[i] in nums:
             if i == di[i] and nums.count(i) == 1:
