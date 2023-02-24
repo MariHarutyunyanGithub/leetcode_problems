@@ -2,13 +2,15 @@
 # without using the operators + and -.
 
 def getSum(a, b):
+    mask = 0xffffffff
     while b:
-        carry = a & b
-        a = a ^ b
-        b = carry << 1
+        carry = (a & b) 
+        a = (a ^ b) & mask
+        b = (carry << 1)& mask
+    if (a >> 31) & 1:
+        return ~(a ^ mask)
     return a
 
-a = 55
+a = -5
 d = 9
 print(getSum(a, d))
-# բացասական թվերի համար սխալա աշխատում(((
