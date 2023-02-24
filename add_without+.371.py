@@ -8,7 +8,7 @@ def getSum(a, b):
         a = (a ^ b) & mask
         b = (carry << 1)& mask
     if (a >> 31) & 1:
-        return ~(a ^ mask)
+        return a | ~(mask)
     return a
 
 a = -5
